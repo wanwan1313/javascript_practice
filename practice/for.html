@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for迴圈</title>
+
+    <script>
+
+
+        for(let i = 0 ; i < 10 ;i+=2) {
+            console.log(`the number is ${i}`);
+            
+        }
+        
+        document.write('第一種')
+        document.write('<br/>')  
+        for( let x = 1 ; x < 10 ; x++ ) {
+            for ( let y = 1 ; y < 10 ; y++ ) {
+                if( y === 4 ) break; //只會影響內迴圈
+                document.write(`${x}x${y}=${x*y} &nbsp`)
+            }
+            document.write('<br/>')       
+        }
+
+        document.write('<br/>')  
+        document.write('第二種')
+        document.write('<br/>')  
+        for( let f = 1 ; f < 10 ; f++ ) {
+            if ( f === 4) break;//影響外迴圈
+            for ( let g = 1 ; g < 10 ; g++ ) {
+                if( g === 4 ) break; //影響內迴圈
+                document.write(`${f}x${g}=${f*g} &nbsp`)
+            }
+            document.write('<br/>')
+            
+        }
+
+        for (let a = 0 ; a < 10 ; a++) {
+            if (a === 4){
+                console.log('finish!')
+                break
+                // 強制停止迴圈(只會執行到a=3)
+            }
+            console.log(a)
+        }
+
+        for (let b = 0 ; b < 10 ; b++) {
+            if ( b ===4 ){
+                console.log('NO')
+                continue
+                // 強制跳過(不會執行到下方的console.log，而是直接b++)
+            }
+            console.log(`b=${b}`)
+        }
+
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

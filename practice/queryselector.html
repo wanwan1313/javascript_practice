@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>query selector</title>
+</head>
+<body>
+    <p class="myClass">問世間</p>
+    <p class="myClass">情是何物</p>
+    <p class="myClass">直教人生死相許</p>
+
+    <script>
+
+        let p = document.querySelector('p.myClass');
+        let pText = p.textContent
+        console.log(p,pText)
+        let pChange = pText.concat('世間情')
+        
+        p.innerText = pChange
+        // p.innerHTML = `<p>${pChange}</p>`
+        // 用innerHTML會多一個p
+
+        let ps =document.querySelectorAll('p')
+        console.log(ps)
+        ps[0].style.color = '#aaf'
+        ps[1].style.color = '#faa'
+        ps[2].style.color = '#afa'
+
+    </script>
+</body>
+</html>

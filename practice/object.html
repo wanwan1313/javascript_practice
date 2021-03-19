@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+
+    <script>
+        let cat = {
+            'legs': 4,
+            'name': 'doraemon',
+            'color': 'blue',
+            'ability': {
+                'jump': function () {
+                    console.log('jump!jump!')
+                },
+                'sound': function () {
+                    console.log('Meow~~~~~')
+                },
+                'sleep': function () {
+                    console.log('ZZZzzz...')
+                }
+            },
+            'my-id': 'A123456789'
+        };
+
+        // 可以用["key"]，也可以用.key，來抓value
+        console.log(cat['legs'])
+        console.log(cat['name'])
+        console.log(cat.color)
+        console.log(cat['ability'].jump())
+        cat['ability'].sound()
+        cat.ability.sleep()
+        console.log(cat['my-id']) //如果key的命名有-，就一定要用["key"]
+
+        // 增加key-value
+        cat['eye_color'] = 'green'
+        cat.habbit = 'play with slave'
+        cat.slogan = function () {
+            console.log('JUST DO IT!!')
+        }
+        cat.my_master = {
+            'call': function () {
+                console.log('Nobi Nobita')
+            }
+        }
+
+        console.dir(cat, { depth: null })  //漂亮剖析印出來
+        console.log(cat) //變成字串印出來
+
+        console.log(cat['eye_color'])
+        console.log(cat.habbit)
+        cat.slogan()
+        cat.my_master.call()
+
+
+
+        // 刪除key-value
+        delete cat.eye_color
+        console.log(cat)
+
+
+        // for-in迴圈--迭代
+        for (let catContents in cat) {
+            // console.log(catContents)    //取得所有的key
+            // console.log(cat[catContents]) //取得所有的value
+            console.log(`${catContents} => ${cat[catContents]}`)
+        };
+
+        // for( let catContents of cat ){};>>>>>>>>錯誤
+        // for-of>>>>>只能用在有索引概念/有序的array，所以不能用在無序的object上
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

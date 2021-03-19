@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number&string</title>
+
+    <script>
+
+        //轉換成數字
+        console.log( parseInt('123abc'))
+        console.log( parseInt('152.5345212'))
+        console.log( `the number is ${parseFloat('152.5345212')}`)
+        console.log( parseFloat('213.54212czjxhck'))
+        console.log( parseFloat('213.0000'))
+        console.log( Number('231 543'))
+        console.log( Number('213254'))
+        console.log( Number('748.2345465842'))
+
+        // 轉換成字串
+        let a = 456
+        console.log( a.toString())
+        console.log(''+a)
+        console.log(String(a))
+
+        // 寫法
+        let b = 543.5432551354
+        console.log(`the number is ${b}`)
+        console.log('the number is %f', b)
+        console.log('the number is %i', b)
+
+
+        // 嚴格等於
+        let x = 5;
+        let y = '5'
+        console.log( x == y )  //true
+        console.log( x === y )  //false
+
+        // 邏輯運算子
+        let isWeekend = true
+        let workAllday = !isWeekend
+        console.log(isWeekend)  //true
+        console.log(workAllday) //false
+
+
+
+        // 賦值運算子
+        x = 45, y = 8 ;
+        x *= y
+        console.log(x)
+
+        x = 45, y = 8 ;
+        x %= y
+        console.log(x)
+
+
+        // 字串跳脫
+
+        console.log('Did you told to Mary\'s brother') //---\'
+        console.log(`你好，我是wanwan!\n我住汐止`)   //---\n
+
+
+        // 字串常用
+        let myName = 'Wanwan Wu'
+        console.log(myName.length)  //長度，包含空格
+        console.log(myName.toUpperCase()) //變大寫
+        console.log(myName.toLowerCase()) //變小寫
+        console.log(myName.slice(0,6))  //切片：起始位置, NUM-1結束位置
+        console.log(myName.slice(7,9))
+        console.log(myName.substr(4,2))
+        console.log(myName.substring(4,3))
+        console.log(myName.charAt(8))
+
+        let myPoem = '黃河遠上白云間，一片孤城萬仞山。'
+        console.log(myPoem.substr(11,3))  //起始位置,數量
+        console.log(myPoem.substring(11,14)) //起始位置,結束位置
+        console.log(myPoem.replace('黃河','長江'))
+        console.log(myPoem.split('，'))
+        console.log(myPoem.indexOf('孤城') > -1 )  //可以拿來判斷有沒有這個字
+        console.log(myPoem.indexOf('孤山') > -1 )  //可以拿來判斷有沒有這個字
+        console.log(myPoem.concat('這是唐詩'))
+        console.log(myPoem.search('白云'))
+        console.log(myPoem.search('白雲'))
+
+
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

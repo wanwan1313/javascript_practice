@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inner</title>
+</head>
+<body>
+
+    <p id="myContent01">哈哈</p>
+    <p id="myContent02"></p>
+
+    <script>
+
+        // 寫入文字
+        let p = document.getElementById('myContent01');
+        console.log(p)
+        p.innerText = '我的少女時代';
+        // 寫入標籤
+        document.getElementById('myContent02').innerHTML = '<span style="color:pink">這是電影</span>'
+
+    </script>
+    
+</body>
+</html>

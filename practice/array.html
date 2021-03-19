@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array陣列</title>
+
+    <script>
+        let arr = ['a','b','c']
+
+        // 迭代出所有的索引(key)-in
+        for(let arrKey in arr){
+            console.log(arrKey)
+        };
+
+
+        // 迭代出所有的值(value)-of
+        for(let arrValue of arr){
+            console.log(arrValue)
+        };
+        // of>>>>>只能用在有索引概念/有序的array，所以不能用在無序的object上
+
+
+        // 用索引值新噌修改
+        let listofName = ['Angel','Berry','Candy','Debbie']
+        listofName[4] = 'Emily'
+        listofName[2] = 'Cindy'
+        console.log(listofName)
+
+        // push-將資料加在最尾端
+        listofName.push('Freddy')
+        console.log(listofName)
+
+        // pop-彈掉最尾端的資料，位置不留
+        let firstName = listofName.pop()
+        listofName[0] = firstName
+        console.log(listofName)
+
+        // delete-刪除資料，但位置留著
+        delete listofName[3]
+        console.log(listofName)
+
+        // listofName[3] = 'Dora'
+        // console.log(listofName)
+        
+
+        // shift--彈掉第一個的資料，位置不留
+         let lastName = listofName.shift()
+         listofName[4] = lastName
+         console.log(listofName)
+
+        // unshift--插入在第一個位置，其他往後順延
+        listofName[5] = 'Grace'
+        console.log(listofName)
+        let newfirstName = listofName.pop()　//Grace
+        listofName.unshift(newfirstName)  //把Grace放到最前面
+        console.log(listofName)
+        listofName.unshift(listofName[2])　//把cindy放到最前面，原本的還會在
+        console.log(listofName)
+
+
+        let arra = [1,2,3,4,5,6]
+        for (let i=0; i<9487 ; i++){
+            let arrLast = arra.pop()
+            arra.unshift(arrLast)
+        };
+        console.log(arra)
+
+
+        //-----------------------------------------------------------------
+
+        // ["Cindy", "Grace", "Berry", "Cindy", empty, "Emily", "Freddy"]
+
+
+         // i依序處理>>會抓到名字空值
+         for ( let i = 0; i < listofName.length; i++ ){
+            console.log(`第${i+1}名:${listofName[i]}`)
+        };
+
+        // 迭代名次依序處理>>不會抓名字空值
+        for ( let myRank in listofName ){
+            console.log(`第${Number(myRank)+1}名:${listofName[myRank]}`)
+        };
+
+         // 迭代名字依序處理　　
+        for ( let myName of listofName){
+            let myRank = listofName.indexOf(myName)
+            console.log(`第${myRank+1}名:${myName}`)
+        };
+
+
+        //-----------------------------------------------------------------
+
+
+        // 把一個陣列轉成一個字串：i依序處理>>會抓到空值
+        let myList = '';
+        for(let i = 0; i < listofName.length ; i++){
+            if (myList == '') {
+                myList = listofName[i]
+            }
+            else {
+                myList += ',' + listofName[i]
+            }
+        };
+        console.log(myList)
+
+
+         // 把一個陣列轉成一個字串：.join()>>不會抓空值
+        console.log(listofName.join(','))
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

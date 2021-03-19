@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二維陣列</title>
+
+    <script>
+
+        let arrarr = [
+            [1,2,3,4],
+            [5,6,7,8,9],
+            [9,10,11,12,13,14]
+        ]
+
+        console.log(arrarr[0][1])
+        console.log(arrarr[1][3])
+        console.log(arrarr[2][5])
+
+        let arrarr1 =[];
+        for (let i =1 ; i<=10 ; i++){
+            arrarr1.push(i)
+        }
+        console.log(arrarr1)
+
+        let arrarr2 = [];
+        for(let j=0 ; j<=10 ; j++){
+            arrarr2.push(arrarr1) //把arrarr1加到arrarr2裡面10次
+        };
+        console.log(arrarr2)
+
+        //-------------------------------------------------------------------
+
+
+        let myData = [
+            32,
+            'Debbie',
+            ['34','26','36'],
+            {'Birth':'78/01/13','Gender':'Female'}
+        ];
+
+        console.log(myData[1][2])
+        console.log(myData[2][2])
+        console.log(myData[3]['Birth'])
+        console.log(myData[3]['Gender'])
+
+        console.log(myData.indexOf(32))
+        console.log(myData.indexOf('Debbie'))
+        console.log(myData[2].indexOf('36'))
+
+        //-------------------------------------------------------------------
+
+        let myMember = ['Andrew','Wanwan'];
+
+        if ( myMember.indexOf('Andrew') !== -1){
+            document.write('是我的成員')
+        }
+        else {
+            document.write('不是我的成員')
+        }
+
+        document.write('<br>')
+
+        let srt = '人生好棒'
+
+        if ( srt.indexOf('難') !== -1){
+            document.write('人生好難')
+        }
+        else {
+            document.write('人生不難')
+        }
+
+        // 抓不到index會回傳-1，可以用這個來判斷有沒有在陣列或字串裡
+        
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

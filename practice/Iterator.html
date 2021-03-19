@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator 迭代</title>
+
+    <script>
+        let userNames = ['大明','大華','大美']
+        for(let i=0 ; i<(userNames.length); i++){
+            document.write(`第${i+1}名:${userNames[i]}`)
+            document.write('<br\>')
+        }
+
+        function ranking(userNames) {
+            let i = 0;
+            return {
+                next:function(){
+                    let done = (i>=(userNames.length));
+                    let value = done?undefined:userNames[i++];
+                    return {
+                        done : done,
+                        value : value
+                    }
+                }
+            }
+        }
+
+        let myRank = ranking(['大明','大華','大美'])
+        console.log(myRank.next())
+        console.log(myRank.next())
+        console.log(myRank.next())
+        console.log(myRank.next())
+
+
+        // i++會印出0，但實際上i已經=1
+        let i=0 ;
+        console.log(i++)  //0
+        console.log(i)    //1
+        console.log(i++)  //1
+        console.log(i)    //2
+        console.log(++i)  //3
+        console.log(i)    //3
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
