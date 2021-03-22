@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date類別</title>
+
+    <script>
+
+        // Date是一個類別，可以用此類別內建的方法取得關於時間的各種值
+
+        let date = new Date(); //建立一個目前時間的物件
+        let dateStr = ''; 
+
+        dateStr += date.getFullYear()
+        dateStr += date.getMonth()+1
+        dateStr += date.getDate()
+        dateStr += date.getHours()
+        dateStr += date.getMinutes()
+        dateStr += date.getSeconds()
+
+
+        document.write(dateStr+'<br>')
+
+        // ----------------------------------------------
+
+        
+        let year, month, day, week, hour, minute, second;
+
+        // 年份
+        year = date.getFullYear()
+
+        // 月份
+        if((date.getMonth()+1) < 10){
+            month = '0'+ (date.getMonth()+1)
+        }
+        else{
+            month = date.getMonth()+1
+        }
+
+        // 日期
+        if(date.getDate() < 10){
+            day = '0'+ date.getDate()
+        }
+        else {
+            day = date.getDate()
+        }
+
+        // 星期
+        if( date.getDay() == 0){
+            week = 'SUN'
+        }
+        if( date.getDay() == 1){
+            week = 'MON'
+        }
+        if( date.getDay() == 2){
+            week = 'TUE'
+        }
+        if( date.getDay() == 3){
+            week = 'WED'
+        }
+        if( date.getDay() == 4){
+            week = 'TUR'
+        }
+        if( date.getDay() == 5){
+            week = 'FRI'
+        }
+        if( date.getDay() == 6){
+            week = 'SAT'
+        }
+
+
+        // 幾點
+        if(date.getHours() < 10){
+            hour = '0' + date.getHours()
+        }
+        else {
+            hour = date.getHours()
+        }
+
+        // 幾分
+        if(date.getMinutes() < 10){
+            minute = '0' + date.getMinutes()
+        }
+        else {
+            minute = date.getMinutes()
+        }
+
+        // 幾秒
+        if(date.getSeconds() < 10){
+            second = '0' + date.getSeconds()
+        }
+        else {
+            second = date.getSeconds()
+        }
+
+
+        document.write(`${year}-${month}-${day} ${week} ${hour}:${minute}:${second}`)
+
+
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

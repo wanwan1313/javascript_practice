@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settimeout2</title>
+</head>
+<body>
+    <p id="mytxt">時間開始</p>
+
+    <script>
+        let p = document.getElementById('mytxt')
+
+        setTimeout(function(){
+            p.innerText = '2秒'
+        },2000)
+        setTimeout(function(){
+            p.innerText = '4秒'
+        },4000)
+        setTimeout(function(){
+            p.innerText = '6秒'
+        },6000)
+
+
+
+        // -----------------------------------------------------------
+        let myList; //建立一個清單變數
+
+        // 建立一個3000後執行的Function
+        function myListfunc(){
+            // 匿名函式-3秒後執行alertFunc
+            myList = setTimeout(alertFunc, 3000 , '防曬乳','化妝水')
+        }
+
+        // 建立alertFunc函式--什麼動作
+        function alertFunc(list1,list2){
+            alert(`我的夏日清單:${list1}、${list2}`)
+        }
+
+        myListfunc();
+    </script>
+    
+</body>
+</html>

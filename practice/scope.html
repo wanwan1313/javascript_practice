@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope變數領域</title>
+
+    <script>
+
+        // -----------------------------全域變數存取--------------------------//
+
+        function myTest(){
+            word01 = '潛安'  //沒有使用var,let,const，就會是全域變數，外面就存取得到
+            document.write(`1月:${word01}<br>`)   
+        }
+
+        word02 = '高清'
+
+        myTest() //函式一定要執行，word01變數才會建立
+
+        document.write(`2月:${word02}<br>`)
+        document.write(`1月:${word01}<br>`)
+
+
+
+
+
+
+
+
+        // -----------------------------全域變數變值--------------------------//
+
+        function myTest2(){
+            word03 = '無流'
+            document.write(`3月:${word03}<br>`)
+        }
+
+        function myTest03(){
+            word03 = '獨潛'
+        }
+
+        myTest03()   //word03＝獨潛
+        myTest2()    //word03＝無流並印出
+        document.write(`3月:${word03}<br>`)  //此時：word03＝無流
+
+        myTest2()  　//word03＝無流並印出
+        myTest03()　　//word03＝獨潛
+        document.write(`3月:${word03}<br>`)  //此時：word03＝獨潛
+
+
+
+
+        // -----------------------------區域變數存取----------------------------//
+
+        function myTest04(){
+            var word04 = '無浪'
+            word05 = '好潛伴'
+            document.write(`4月:${word04}<br>`)
+            document.write(`5月:${word05}<br>`)
+        }
+
+        word06 = '海龜'
+        let word07 = '綠島'
+
+        myTest04()  //函式一定要執行，word05變數才會建立
+
+        // document.write(`4月:${word04}<br>`) //word04是區域變數，存取不到
+        document.write(`5月:${word05}<br>`)
+        document.write(`6月:${word06}<br>`)
+        document.write(`7月:${word07}<br>`)
+
+
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

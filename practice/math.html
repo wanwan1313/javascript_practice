@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+
+    <script>
+        // 取得0(包含)~1(不包含)之間的隨機浮點數
+        console.log(Math.random())
+        // Math.floor是無條件捨去小數點後，Math.random()*3會是0~3之間的隨機浮點數，永遠不會超過3，所以Math.floor(Math.random()*3)就會是0到2之間的隨機整數:0,1,2
+        console.log(Math.floor(Math.random()*3)) 
+
+        let dinnerChoice = ['麥當勞','肯德基','頂呱呱','摩斯','漢堡王','胖老爹']
+        let indexRandom = Math.floor(Math.random()*dinnerChoice.length) //Math.random()*dinnerChoice.length永遠不會超過6，所以剛好是0,1,2,3,4,5這5個數值隨機
+        
+        
+        document.write(`我的晚餐選擇有：<br>`)
+        for(let i = 0; i < dinnerChoice.length ; i++){
+            document.write(`* ${dinnerChoice[i]}<br>`)
+        }
+
+        document.write(`今晚，我想來點 ${dinnerChoice[indexRandom]}`) //套上隨機index數值
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

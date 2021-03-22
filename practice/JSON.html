@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+    <script>
+
+        let myDataStr = `{
+        "firstName": "Darren",
+        "lastName": "Yang",
+        "gender": "male",
+        "age": 18,
+        "address": {
+            "streetAddress": "台北市復興南路一段390號2樓、3樓",
+            "city": "Taipei"
+        },
+        "phoneNumber": [
+            {
+                "type": "office",
+                "number": "6631-6666"
+            },
+            {
+                "type": "fax",
+                "number": "6631-6598"
+            }
+        ]
+    }`;
+        console.log(myDataStr);
+
+        // 把純文字JSON格式轉成物件
+        let myDataObj = JSON.parse(myDataStr)
+        console.log(myDataObj);
+
+        console.log(myDataObj['firstName'])
+        console.log(myDataObj['lastName'])
+        console.log(myDataObj.gender)
+        console.log(myDataObj.age)
+        console.log(myDataObj['address']['streetAddress'])
+        console.log(myDataObj.address.city)
+        console.log(myDataObj['phoneNumber'][0]['number'])
+        console.log(myDataObj['phoneNumber'][1]['number'])
+
+        // 如果物件裡面包含陣列，可以用for-of把value迭代出來
+        // value會是物件格式，可以再用['XXXX']把值找出來
+        for (let i of myDataObj['phoneNumber']) {
+            console.log('-----------------------')
+            console.log(i['type'])
+            console.log(i['number'])
+        };
+
+        // 從php撈資料>會用JSON格式傳純文字檔回來(data)
+        // 把data轉成物件，就可以存取物件裡的資料下判斷
+        // 傳回來可以先用console.log除錯，確認php程式沒問題
+        // $.post('php程式',{id:4},function(data)){ 
+        //     console.log(data)
+        //     let obg = JSON.parse(data);
+        //     if (){}
+        //     else{}
+        // }
+
+
+        //------------------------------------------------------------------//
+
+        let objPerson = {
+            name: "Bill",
+            age: 25,
+            hairColor: 'black',
+            skinColor: 'beige'
+        };
+
+        // 新增屬性
+        objPerson.hadcoffee = true;
+        objPerson.iswoken = true;
+
+        // 刪除屬性
+        delete objPerson.hairColor
+
+        // 修改屬性
+        objPerson.name = 'Alex'
+
+        // /把物件格式轉成純文字JSON格式
+        let strPerson = JSON.stringify(objPerson)
+        console.log(strPerson)
+
+        
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

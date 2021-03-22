@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure閉包</title>
+
+    <script>
+
+        // ------------------------內部function------------------------//
+
+
+        function myFunc(){
+            let myName = 'wanwan'
+            function printName(){
+                console.log(myName)
+            }
+            printName()
+        }
+
+        myFunc()
+        // console.log(myName)會存取不到變數，因為myName是區域變數
+        // 這時候可以用閉包(closure)，利用建立內部函式的方式，來存取函式內的區域變數
+
+        myWord = '我擅長潛水'
+
+        function myFunc2(){
+            let myName = 'wanwan';
+            let wanttoSay = function(){
+                document.write(`${myName}說:${myWord}`)
+            }
+            wanttoSay()
+        }
+
+        myFunc2()
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

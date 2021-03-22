@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class類別</title>
+    <script>
+
+
+        // Person是一個Class類別，用function建立，開頭會用大寫
+        let Person = function (myname, myage, myheight, myhair) {
+            this.name = myname;
+            this.age = myage;
+            this.height = myheight;
+            this.haircolor = myhair;
+
+            this.getName = function () {
+                return this.name
+            }
+            this.printName = function () {
+                console.log(this.name)
+            }
+        }
+
+
+        // 用new來變成真實的物件，代入參數
+        let person01 = new Person('wanwan', '32', '156', 'black')
+        let person02 = new Person('andrew', '30', '172', 'brown')
+
+        console.log(person01.getName())
+        person01.printName()
+
+        console.log(person01.name)
+        console.log(person01.age)
+        console.log(person01.height)
+        console.log(person01.haircolor)
+        console.log(person02.name)
+        console.log(person02.age)
+        console.log(person02.height)
+        console.log(person02.haircolor)
+
+
+
+        // ------------------------------------------------------------  //
+
+        let Pets = function (mytype, myname, myage, mybirth) {
+            this.type = mytype;
+            this.name = myname;
+            this.age = myage;
+            this.birth = mybirth
+
+            this.intro = function () {
+                return `我的寵物是一隻${this.type}，他的名字是${this.name}，現在${this.age}歲，生日是${this.birth}。`
+            }
+        }
+
+        Pets.prototype.introMypets = function () {
+            document.write(`我的寵物是一隻${this.type}，他的名字是${this.name}，現在${this.age}歲，生日是${this.birth}<br>`)
+        }
+
+        let pet01 = new Pets('狗狗', '雪糕', '4', '7月3號')
+        let pet02 = new Pets('狗狗', 'YOYO', '12', '9月19號')
+
+        pet01.introMypets()
+        console.log(pet01.intro())
+        pet02.introMypets()
+        console.log(pet02.intro())
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

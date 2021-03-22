@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+
+    <script>
+
+        // ------------------------IIFE立即執行函式--------------------------//
+        // 一定要寫在所有function前
+
+        // 起手式
+        (
+            function (name,time) {
+                document.write(`Hi,${name},<br>${time}好`);
+            }
+        )('wanawn','早上')
+
+
+
+        // -----------------------建立基本函式--------------------------//
+
+        function say(){
+            console.log('Hi')
+        }
+
+        say() // 呼叫函式
+
+
+        // 參數函式
+        function sayhito(name) {
+            console.log(`Hi,${name}早安`)
+        }
+        sayhito('Wanwan')
+
+
+        // 回傳值的函示
+        function getMessage(){
+            return 'Good Job!'
+        }
+
+        getMessage() //僅回傳值'Good Job!'，沒有印出，所以呼叫函式沒有東西
+        console.log(getMessage())
+
+        
+
+
+
+
+        // -------------------------匿名函式-----------------------------//
+        // 把一個沒有命名的函式指給一個變數，即匿名函式
+
+
+        let greetWord = function(){
+            console.log('Good Morning!')
+        }
+
+        greetWord()
+
+        // ----------------------------------//
+
+        let memberData = function(name,nick){
+            console.log(`大家好，我是${name}，我的綽號是${nick}`)
+        }
+
+        memberData('WanJung','Wanwan')
+
+        // ---------------------------------//
+
+        let getMyWord = function(name,hob){
+            return `我是${name}，我的興趣是${hob}`
+        }
+
+        let myWord = getMyWord('wanwan','freediving')
+        console.log(myWord)
+
+
+        
+        
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
