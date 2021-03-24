@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get-post-ajax</title>
+</head>
+<body>
+
+    <button class="btn" name="btn_get" id="btn_get">用Get傳送</button>
+    <button class="btn" name="btn_post" id="btn_post">用Post傳送</button>
+    <button class="btn" name="btn_ajax" id="btn_ajax">用Ajax傳送</button>
+
+    <div id="result"></div>
+
+    <!-- 引入jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        // 取得result元素
+        let result = document.querySelector('div#result')
+
+        // 使用get方法傳送
+        $(document).on('click','button#btn_get',function(){
+
+
+            //寫法：$.get('會是一個php網址，要傳過去的網址', {要傳送過去的物件型態ex取得表單的value} , function(送回來的資料變數，型態是object){})
+            $.get('https://httpbin.org/get', {id:'wanwan',age:32}, function(get_objJson){
+                console.log(typeof(get_objJson)) //回傳回來的是一個JSON的object
+                result.innerText = JSON.stringify(get_objJson)  //把object轉成string
+                // 可以取得物件的值
+                console.log(get_objJson.args)
+                console.log(get_objJson.args.id)
+                console.log(get_objJson.args.age)
+                console.log(get_objJson['origin'])
+                // 傳過去的網址就是：https://httpbin.org/get?id=wanwan&age=32
+            })
+        })
+
+
+
+        // 使用post方法傳送---傳送比較機密的資料(ex帳密)時用
+        $(document).on('click','button#btn_post',function(){
+            
+            //寫法：$.post('會是一個php網址，要傳過去的網址', {要傳送過去的物件型態ex取得表單的value} , function(送回來的資料變數，型態是object){})
+            $.post('https://httpbin.org/post', {id:'wanwan',age:32} ,function(post_objJson){
+                console.log(typeof(post_objJson)) //回傳回來的是一個JSON的object
+                result.innerText = JSON.stringify(post_objJson) //把object轉成string
+                // 可以取得物件的值
+                console.log(post_objJson.form)
+                console.log(post_objJson.form.id)
+                console.log(post_objJson.form.age)
+                console.log(post_objJson.url)
+            })
+        })
+
+
+
+        // 使用ajax方法傳送
+        $(document).on('click','button#btn_ajax', function(){
+            $.ajax({
+                method: 'post' , //post or get
+                url: 'https://httpbin.org/post' ,
+                data: {
+                    id:'wanwan',
+                    age:32
+                }
+            }).done(function(ajax_objJson){
+                console.log(typeof(ajax_objJson)) //回傳回來的是一個JSON的object
+                result.innerText = JSON.stringify(ajax_objJson) //把object轉成string
+                // 可以取得物件的值
+                console.log(ajax_objJson.form)
+                console.log(ajax_objJson.form.id)
+                console.log(ajax_objJson.form.age)
+                console.log(ajax_objJson.url)
+
+            })
+        })
+
+    </script>
+    
+</body>
+</html>

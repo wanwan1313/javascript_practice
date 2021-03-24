@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 150px;
+            background-color: salmon;
+            color: #fff;
+            text-align: center;
+            line-height: 150px;
+            transition: .5s;
+            margin-top: 100px;
+        }
+
+        .img {
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .btn2 {
+            width: 100px;
+            height: 50px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn" id="btn">Not check</button>
+
+    <div class="box">Hover it!!</div>
+
+    <div class="img"><img src="/images/coffee2.jpg" alt=""></div>
+
+    <button class="btn2" id="btn2">連點兩下:<span></span></button>
+
+
+    <script>
+
+
+        document.querySelector('button.btn').addEventListener('click', function (event) {
+            alert(this.innerText)
+            this.innerText = 'Checked'
+        })
+
+        let box = document.querySelectorAll('div')[0];
+        box.addEventListener('mouseover', function (event) {
+            this.style.backgroundColor = '#faf'
+        })
+        box.addEventListener('mouseout', function (event) {
+            this.style.backgroundColor = 'salmon'
+        })
+
+        document.querySelector('.img>img').addEventListener('click', function (event) {
+            this.setAttribute('src', '/images/coffee3.jpg')
+        })
+
+
+        let btn2 = document.querySelector('#btn2')
+        let count = 0;
+        let width = btn2.offsetWidth;
+        let height = btn2.offsetHeight;
+        let countText = document.querySelector('#btn2>span')
+        btn2.addEventListener('dblclick', function (event) {
+            count++;
+            width += 20;
+            height += 20;
+            btn2.style.width = width + 'px'
+            btn2.style.height = height + 'px'
+            countText.innerText = count
+        })
+
+
+
+    </script>
+</body>
+
+</html>

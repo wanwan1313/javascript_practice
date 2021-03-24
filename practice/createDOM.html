@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動態產生元素</title>
+</head>
+<body>
+
+    <ul id="myList">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+
+    <script>
+
+        // 動態產生一個元素加在body裡
+        let newDiv = document.createElement('div') //新建一個DOM節點
+        newDiv.id = 'mydiv'  //給這個元素id屬性
+        newDiv.class = 'box'　//給這個元素class屬性
+
+        let newText = document.createTextNode('Hello World!!') //新建一個文字節點
+        newDiv.appendChild(newText)　//DOM元素新增文字屬性
+
+        document.body.appendChild(newDiv)　//加到body裡
+
+
+        // 動態產生一個元素加在ul裡
+        let myList = document.querySelector('ul#myList')
+        let listItems = document.querySelectorAll('li')
+
+        let newList = document.createElement('li')
+        let itemNum = listItems.length
+        let newListText = document.createTextNode(`item${itemNum+1}`)
+        newList.appendChild(newListText)
+        myList.appendChild(newList)
+
+
+
+    </script>
+    
+</body>
+</html>

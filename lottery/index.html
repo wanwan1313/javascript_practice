@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+    <script src="./lottery.js" defer></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .num {
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .num01, .num01-sort, .num02 {
+            padding: 5px 10px;
+            border: 0.5px solid #ccc;
+        }
+
+        span {
+            color: transparent;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <h1>威力彩號碼</h1>
+    <div class="num">
+        <p>第一區號碼開出：
+            <span class="num01" id="num01-1">01</span>
+            <span class="num01" id="num01-2">01</span>
+            <span class="num01" id="num01-3">01</span>
+            <span class="num01" id="num01-4">01</span>
+            <span class="num01" id="num01-5">01</span>
+            <span class="num01" id="num01-6">01</span>
+        </p>
+        <p>第一區號碼大小：
+            <span class="num01-sort" id="num01-sort-1">01</span>
+            <span class="num01-sort" id="num01-sort-2">01</span>
+            <span class="num01-sort" id="num01-sort-3">01</span>
+            <span class="num01-sort" id="num01-sort-4">01</span>
+            <span class="num01-sort" id="num01-sort-5">01</span>
+            <span class="num01-sort" id="num01-sort-6">01</span>
+        </p>
+        <p>第二區號碼開出：
+            <span class="num02" id="num02">01</span>
+        </p>
+
+        <button onclick="powerStart()">GO</button>
+    </div>
+</body>
+
+</html>

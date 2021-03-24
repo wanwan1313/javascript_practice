@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math三角函數</title>
+    <style>
+        .wrap {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid salmon;
+            border-radius: 50%;
+        }
+
+        .circle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: sandybrown;
+            border-radius: 50%;
+            display: none;
+            transform: translate(-50%,-50%);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap" id="wrap"></div>
+    <div class="circle" id="circle"></div>
+
+    <script>
+
+        let radius = 250 ; //半徑
+        let wrap = document.getElementById('wrap') ;
+        let circle = document.getElementById('circle') ;
+        let degree = 0 ; //設定起始角度
+        let quality = 6 ; //我要幾個小圓
+        let moveLengh = 360 / quality ; //小圓一次移動多少角度
+        let t; //時間參數
+
+        t = setInterval(function(){
+            draw();
+        },300)
+
+        function draw(){
+
+            // 停止設定
+            if ( degree + moveLengh >= 360 ){
+                clearTimeout(t)
+            }
+
+            //角度遞增
+            degree += moveLengh 
+
+            //取得wrap位置
+            let wrap_left = wrap.offsetLeft; 
+            let wrap_top = wrap.offsetTop;  
+
+            // 弧度 = 角度 * (PI / 180)
+            let x = Math.cos(degree * (Math.PI / 180)) * radius
+            circle.style.left = (wrap_left + radius + x ) + 'px';
+            let y = Math.sin(degree * (Math.PI / 180)) * radius
+            circle.style.top = (wrap_top + radius - y ) + 'px';
+
+            circle.style.display = 'block'
+
+            let newCircle = circle.cloneNode(true);
+            document.body.appendChild(newCircle)
+
+
+        }
+
+
+    </script>
+    
+</body>
+</html>
