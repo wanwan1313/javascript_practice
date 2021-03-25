@@ -37,6 +37,25 @@
         newList.appendChild(newListText)
         myList.appendChild(newList)
 
+        // 動態產生一個元素加在item2前
+        let listItem_2 = document.querySelectorAll('li')[1];
+
+        let newList_2 = document.createElement('li')
+        let newListText_2 = document.createTextNode("I'm Here!")
+        newList_2.appendChild(newListText_2)
+        myList.insertBefore(newList_2,listItem_2)
+
+        // 動態改變原本節點的內容
+        let listItem_3 = document.querySelectorAll('li')[2];
+        let newList_3 = document.createElement('li')
+        let newListText_3 = document.createTextNode('New item3')
+        newList_3.appendChild(newListText_3)
+        myList.replaceChild(newList_3,listItem_3)
+
+        // 動態刪除節點
+        let listItem_1 = document.querySelectorAll('li')[0];
+        myList.removeChild(listItem_1)
+
 
 
     </script>
