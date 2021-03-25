@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute屬性</title>
+</head>
+<body>
+
+    <button id="btn1">按鈕1</button>
+    <button id="btn2" name="btn2">按鈕2</button>
+    <button id="btn3" name="btn3" onclick="javascript: alert('Hello')">按鈕3</button>
+    <br>
+    <br>
+
+    <input type="text" id="txt">
+    
+    <script>
+
+        // 設定屬性
+        let btn1 = document.querySelectorAll('button')[0];
+        btn1.setAttribute('name','btn1')
+        btn1.setAttribute('disabled', true)
+
+        // 取得屬性的值
+        let btn2 = document.querySelectorAll('button')[1];
+        let btn2_name = btn2.getAttribute('name')
+        console.log(btn2_name)
+        
+        // 刪除屬性
+        let btn3 = document.querySelectorAll('button')[2];
+        btn3.removeAttribute('onclick')
+        btn3.setAttribute('onclick', 'javascript: alert("Hi")')
+
+        // 自訂屬性
+        let txt = document.querySelector('input#txt')
+        txt.setAttribute('name','txt')
+        txt.setAttribute('value','1234')
+        txt.setAttribute('data-type','純文字')
+        txt.setAttribute('data-price', 10000 )
+        txt.setAttribute('data-description', '這是測試的欄位')
+        txt.setAttribute('placeholder', '試試看')
+        
+        let type = txt.getAttribute('data-type')
+        let price = txt.getAttribute('data-price')
+        let description = txt.getAttribute('data-description')
+
+        document.write('<br>')
+        document.write(type+'<br>')
+        document.write(price+'<br>')
+        document.write(description+'<br>')
+        
+
+
+    </script>
+</body>
+</html>
