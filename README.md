@@ -4,7 +4,7 @@
 初試啼聲:
 
 威力彩：<br>
-https://wanwan1313.github.io/javascript_practice/lottery/ 
+https://wanwan1313.github.io/javascript_practice/lottery/ <br>
 https://wanwan1313.github.io/javascript_practice/lottery2/
 
 找出質數:<br>
