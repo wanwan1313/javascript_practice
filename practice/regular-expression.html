@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正規表達式</title>
+
+    <script>
+
+        let str01 = 'sdfsA236546'
+        let regex_01 = /A[0-9]+/g;
+
+        // 正規表達式.test(字串) -> 判斷字串是否符合正規表達式，結果為布林值
+        if (regex_01.test(str01)) {
+            document.write(`${str01}:字串符合<br>`)
+        }
+        else {
+            document.write(`false`)
+        }
+
+        document.write(`<br>`)
+
+
+
+
+        // --------------------------------------------------------------//
+
+        let str02 = '1234 , 5678, ASAG , SAFGA45'
+        let regex_02 = /\d{4}/g
+        let match02 = null ;
+
+        // 字串.match(正規表達式) -> 判斷字串是否符合正規表達式，會將match的值變成陣列，若比對沒有符合則回傳null
+        if ((match02 = str02.match(regex_02)) != null) {
+            document.write(`${str02}:字串符合<br>`)
+            document.write(`match02是否為陣列? ${Array.isArray(match02)}<br>`)
+            document.write(match02 + `<br>`)
+
+            // 取值
+            for (let i of match02) {
+                document.write(i + `<br>`)
+            }
+
+        }
+        else {
+            document.write(`<br>`)
+            document.write(`${str02}:字串沒有符合<br>`)
+        }
+
+        // --------------------------------------------------------------//
+
+        let str03 = 'A246214754 , F124784695 , G225456871 , A157420327'
+        let regex_03 = /[A-Z][1|2]\d{8}/g;
+        let match03 = null;
+
+        // 正規表達式.exec(字串) -> 透過迭代方式找出配對的結果，成功就透過迴圈各別讀取，若比對沒有符合則回傳null
+        while ((match03 = regex_03.exec(str03)) !== null) {
+            console.log(match03)
+            console.log(match03[0])
+            console.log(match03['index'])
+        }
+
+        
+
+        // --------------------------------------------------------------//
+
+        let str04 = `
+    https://stickershop.line-scdn.net/stickershop/v1/sticker/384169592/iPhone/sticker_animation@2x.png, 
+    https://stickershop.line-scdn.net/stickershop/v1/sticker/384169612/iPhone/sticker_animation@2x.png, 
+    https://stickershop.line-scdn.net/stickershop/v1/sticker/384169607/iPhone/sticker_animation@2x.png,
+    https://stickershop.line-scdn.net/stickershop/v1/sticker/384169603/iPhone/sticker_animation@2x.png `;
+        
+        let regex_04 = /https?:\/\/stickershop\.line-scdn\.net\/stickershop\/v1\/sticker\/([0-9]+)\/iPhone\/sticker_animation@2x\.png/g
+
+        let match04 = null ;
+
+        while ( ( match04 = regex_04.exec(str04)) !== null ){
+            console.log(`圖片網址:${match04[0]}`)  //比對到的字串
+            console.log(`圖片編號:${match04[1]}`)  //正規表達式裡有()裡面的值，group的概念，可以抓網址內的流水編號等
+        }
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

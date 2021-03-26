@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvus</title>
+</head>
+
+<body>
+
+    <canvas id="canvus" width="800" height="800"></canvas>
+
+    <script>
+
+        let canvus = document.querySelector('#canvus')
+        let cv_context = canvus.getContext('2d')
+
+        // 填滿的方形
+        cv_context.fillStyle = '#aaf'
+        cv_context.fillRect(100, 100, 50, 50)
+
+        // 線框的方形
+
+        cv_context.strokeStyle = '#faa'
+        cv_context.lineWidth = 3
+        cv_context.strokeRect(75, 115, 100, 20)
+
+
+        // 7個X
+        for (let i = 0; i < 7; i++) {
+
+            let add = 100
+            add * i
+
+            cv_context.beginPath()
+            cv_context.moveTo(100 + add * i, 10)
+            cv_context.lineTo(150 + add * i, 60)
+            cv_context.moveTo(100 + add * i, 60)
+            cv_context.lineTo(150 + add * i, 10)
+            cv_context.stroke()
+        }
+
+        // 房子形狀
+        cv_context.beginPath()
+        cv_context.moveTo(100, 300)
+        cv_context.lineTo(100, 240)
+        cv_context.lineTo(125, 220)
+        cv_context.lineTo(150, 240)
+        cv_context.lineTo(150, 300)
+        cv_context.lineTo(150, 300)
+        cv_context.fill()
+
+        // 弧線
+        cv_context.beginPath()
+        cv_context.strokeStyle = '#afa'
+        cv_context.arc(400, 400, 50, 0, Math.PI / 2, false)
+        cv_context.stroke()
+
+
+        // 同心圓
+        let circle = function (x, y, radius) {
+            cv_context.beginPath()
+            cv_context.arc(x, y, radius, 0, Math.PI * 2, true)
+            cv_context.stroke()
+        }
+        cv_context.strokeStyle = '#faf'
+        circle(400, 600, 10)
+        circle(400, 600, 20)
+        circle(400, 600, 30)
+        circle(400, 600, 40)
+
+        // 橢圓形
+        cv_context.beginPath()
+        cv_context.fillStyle = '#aff'
+        cv_context.ellipse(400, 200, 30, 60, Math.PI,
+            0, 2 * Math.PI)
+        cv_context.fill()
+        cv_context.beginPath()
+        cv_context.fillStyle = '#aff'
+        cv_context.ellipse(400, 200, 30, 60, Math.PI / 2,
+            0, 2 * Math.PI)
+        cv_context.fill()
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
