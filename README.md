@@ -3,12 +3,12 @@
 
 初試啼聲:
 
-威力彩：
-https://wanwan1313.github.io/javascript_practice/lottery/
+威力彩：<br>
+https://wanwan1313.github.io/javascript_practice/lottery/ 
 https://wanwan1313.github.io/javascript_practice/lottery2/
 
-找出質數:
+找出質數:<br>
 https://wanwan1313.github.io/javascript_practice/prime-number/
 
-碼表:
+碼表:<br>
 https://wanwan1313.github.io/javascript_practice/stopwatch/
