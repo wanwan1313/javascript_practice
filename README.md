@@ -1,8 +1,7 @@
 # javascript_practice
 資策會javascript課程各種練習
 
-初試啼聲:
-
+牛刀小試:
 威力彩：<br>
 https://wanwan1313.github.io/javascript_practice/lottery/ <br>
 https://wanwan1313.github.io/javascript_practice/lottery2/
