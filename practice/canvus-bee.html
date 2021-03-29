@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bee</title>
+
+    <style>
+        #canvus {
+            border: 1px dashed lightcoral;
+        }
+    </style>
+
+</head>
+<body>
+
+    <canvas id="canvus" width="500" height="500"></canvas>
+
+    <script>
+        // 先把canvus變成2D畫布
+        let canvus = document.querySelector('#canvus')
+        let cv_context = canvus.getContext('2d')
+
+        let drawCircle = function(x, y, radius, fill ){
+            cv_context.beginPath()
+            cv_context.arc(x, y, radius, 0 , Math.PI * 2, false)
+
+            if(fill == true) {
+                cv_context.fill()
+            }
+            if(fill == false) {
+                cv_context.stroke()
+            }
+        }
+
+        // drawCircle(100,100,50,false)
+
+        let drawBee = function(x, y){
+            cv_context.strokeStyle = '#000'
+            cv_context.fillStyle = 'gold'
+            drawCircle(x, y, 15 ,true)
+            drawCircle(x, y, 15 ,false)
+            drawCircle(x-8, y-21, 8 ,false)
+            drawCircle(x+8, y-21, 8 ,false)
+            cv_context.fillStyle = '#999'
+            drawCircle(x-4, y-4, 4 ,false)
+            drawCircle(x-4, y-4, 4 ,true)
+            drawCircle(x+4, y-4, 4 ,false)
+            drawCircle(x+4, y-4, 4 ,true)
+        }
+
+        let update = function(position){
+            let offset = Math.random()*4-2
+            position += offset
+
+            if( position > 500 ){
+                position = 500
+            }
+            if( position < 0 ){
+                position = 0
+            }
+            return position
+        }
+
+
+        let x = 250
+        let y = 250
+
+        setInterval(function(){
+            cv_context.clearRect(0, 0, 500, 500)
+            drawBee(x,y)
+            x = update(x)
+            y = update(y)
+        },30)
+        
+
+        
+
+
+    </script>
+    
+</body>
+</html>

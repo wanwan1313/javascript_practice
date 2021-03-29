@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上傳檔案</title>
+
+    <style>
+        #canvus {
+            border: 1px dashed lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvus" width="960" height="500"></canvas>
+    <br>
+    <input type="file" name="fileUpload">
+
+    <script>
+
+        // 先把canvus變成2D畫布
+        let canvus = document.querySelector('#canvus')
+        let cv_context = canvus.getContext('2d')
+
+        let fileUpload = document.querySelector('input[type="file"][name="fileUpload"]')
+
+        fileUpload.addEventListener('change',function(event){
+            let file = this.files[0]
+            console.log(file)
+            let reader = new FileReader()
+            console.log(reader)
+
+            reader.onload = function(e){
+                let strImgbase64 = this.result
+                console.log(strImgbase64)
+                let img = new Image()
+                console.log(img)
+                img.src = strImgbase64
+                img.onload = function(e){
+                    cv_context.drawImage(img,0,0,1000,1000,100,100,250,250)
+                }
+            }
+
+            reader.readAsDataURL(file)
+
+        })
+        
+    </script>
+
+</body>
+
+</html>

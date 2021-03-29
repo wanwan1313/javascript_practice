@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驗證表單</title>
+</head>
+<body>
+
+    <form name="form1" method="POST" action="" onsubmit="return checkform()">
+        <label for="username">您的姓名:</label>
+        <input type="text" id="username" name="username" value="">
+        <br>
+        <label for="useremail">您的信箱:</label>
+        <input type="text" id="useremail" name="useremail" value="">
+        <br>
+        <input type="submit" id="btn" value="送出" />
+
+    </form>
+
+    <script>
+
+        function checkform(){
+
+            if( document.form1.username.value.length < 2){
+                alert(`請輸入正確姓名`)
+                return false
+            }
+
+            if( veriemail(document.form1.useremail.value) == false ){
+                alert(`E-mail 格式不正確`)
+                return false
+            }
+        }
+
+        function veriemail(email){
+            let regex = /\S+@\S+\.\S+/
+            return regex.test(email)
+        }
+    </script>
+    
+</body>
+</html>
